@@ -18,8 +18,8 @@ class CreateMotorciclesTable extends Migration
             $table->string('model_name', 80);
             $table->integer('cubic_capacity');
             $table->string('fipe_code', 30);
-            $table->unsignedBigInteger('brand_id')->nullable(false);
-            $table->foreign('brand_id')->references('id')->on('brands')->onUpdate('cascade');
+            $table->foreignId('brand_id')->references('id')->on('brands')->onUpdate('cascade');
+            $table->foreignId('category_id')->references('id')->on('categories')->onUpdate('cascade');
             $table->timestamps();
         });
     }
